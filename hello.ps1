@@ -9,3 +9,4 @@ Write-Host "Time     : $(Get-Date)" -ForegroundColor Magenta
 Write-Host "`nTop 3 Memory Hogs:" -ForegroundColor Red
 Get-Process | Sort-Object WorkingSet -Descending |
     Select-Object -First 3 Name, @{N='MemoryMB';E={[math]::Round($_.WorkingSet/1MB,1)}}
+Write-Host "Git push successful!" -ForegroundColor Green
