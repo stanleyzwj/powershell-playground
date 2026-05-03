@@ -11,19 +11,61 @@ building toward becoming a confident Windows IT engineer.
 | Folder | Contents |
 |--------|----------|
 | `scripts/` | Reusable PowerShell scripts |
+| `tests/` | Practice scripts and bug-fixing exercises |
 | `notes/` | Daily learning notes |
 | `projects/` | Mini automation projects |
 
 ## 🛠️ Scripts
 
 ### `scripts/hello.ps1`
-Displays system info and top memory-using processes.
+Prints a greeting with computer name, username, and current time, then lists the top 3 processes by memory usage.
+
+```powershell
+.\scripts\hello.ps1
+```
+
+---
+
+### `scripts/Get-DiskReport.ps1`
+Reports used/free space in GB for every mounted disk drive. Color-coded by fullness: green (<70%), yellow (70–90%), red (>90%).
+
+```powershell
+.\scripts\Get-DiskReport.ps1
+```
+
+Example output:
+```
+Drive C:  199.5 GB free of 254.7 GB (22% used) - Healthy
+Drive D:  12.3 GB free of 500.0 GB (98% used) - WARNING - Almost Full!
+```
+
+---
+
+### `scripts/Get-ServiceHealth.ps1`
+Checks whether key Windows services are running or stopped. Defaults to Spooler, WinRM, W32Time, and Dnscache. Accepts a custom list via `-ServiceNames`.
+
+```powershell
+# Run with defaults
+.\scripts\Get-ServiceHealth.ps1
+
+# Check specific services
+Get-ServiceHealth -ServiceNames "Spooler", "wuauserv", "BITS"
+```
+
+Example output:
+```
+[OK]  Print Spooler: Running
+[!!]  Windows Remote Management (WS-Management): STOPPED
+[OK]  Windows Time: Running
+[OK]  DNS Client: Running
+```
 
 ## 📅 Learning Log
 
 | Day | Date | Topics Covered |
 |-----|------|----------------|
 | 1 | 2026-05-02 | PowerShell basics, pipeline, Git workflow, first GitHub push |
+| 2 | 2026-05-03 | Functions, colored output, stream redirection (`2>&1`), `$LASTEXITCODE`, bug fixing (typos, wrong operators), conventional commits |
 
 ## 📚 Resources
 - [Microsoft Learn — PowerShell](https://learn.microsoft.com/en-us/powershell/)
