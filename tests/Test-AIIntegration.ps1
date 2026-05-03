@@ -58,3 +58,13 @@ function Test-MyEnvironment {
 # Calling the function here means running the script executes the check
 # immediately, without the caller having to type anything extra.
 Test-MyEnvironment
+# ────────────────────────────────────────────
+# BUGGY CODE FOR CLAUDE TO FIX
+# ────────────────────────────────────────────
+function Get-BadDiskInfo {
+    Get-PSDrive |
+        Where-Object { $_.Used -gt 0 } |
+        ForEach-Object { Write-Host $_.Name }
+}
+
+Get-BadDiskInfo
