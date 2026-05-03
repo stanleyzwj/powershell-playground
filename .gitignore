@@ -1,0 +1,29 @@
+# Claude Code local settings
+.claude/
+
+# IDE settings
+.vscode/
+
+# Logs
+*.log
+*.tmp
+
+# Backup files
+*.bak
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sensitive files
+*.secret
+secrets.txt
+my-tokens.txt
+
+# Build outputs
+*.exe
+*.dll
+
+# Test outputs
+reports/*.csv
